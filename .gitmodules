@@ -1,0 +1,3 @@
+[submodule "flexmoney-frontend"]
+	path = flexmoney-frontend
+	url = https://github.com/GhostVaibhav/flexmoney-frontend
