@@ -13,8 +13,6 @@ cron job at EOD => check if a month has elapsed from the starting_date, if it ha
 Optional => when checking for EOD at every day, if the term is nearing an end and pay_due is true
             we can send a SMS to the user regarding the payment
 
-
-
 Pages for frontend =>
 
 1. Landing page for filling the form
@@ -33,5 +31,3 @@ Routes for backend =>
 4. /leave - for deleting the customer record
 5. /forgot - for getting the enrollment number on the basis of your phone number
 6. /getb - getting the current batch of a user
-
-2e55b5ba4a5cadc915faade9ec30e751cc71340bfdd68f72273969b75b20fa6e
