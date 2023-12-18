@@ -1,9 +1,19 @@
 const mysql = require('mysql2');
 const express = require('express');
+const https = require('https');
+const fs = require('fs');
 const { createHash } = require('crypto');
 require('dotenv').config();
 const bodyParser = require('body-parser');
 const cors = require('cors');
+
+var key = fs.readFileSync('selfsigned.key');
+var cert = fs.readFileSync('selfsigned.crt');
+var options = {
+    key: key,
+    cert: cert
+};
+
 const app = express();
 app.use(cors());
 app.use(bodyParser.json());
@@ -65,6 +75,7 @@ app.post('/pay', async (req, res) => {
 });
 
 app.post('/change', async (req, res) => {
+    console.log("change");
     var query = "UPDATE user SET next_batch = '" + req.body.batch + "' WHERE enrollmentID = '" + req.body.enrollmentID + "';";
 
     await connection.query(query)
@@ -144,6 +155,8 @@ app.post('/getb', async (req, res) => {
     });
 });
 
-app.listen(port, () => {
+var server = https.createServer(options, app);
+
+server.listen(port, () => {
     console.log(`App listening at http://localhost:${port}`);
 });
