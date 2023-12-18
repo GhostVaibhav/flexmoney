@@ -1,18 +1,9 @@
 const mysql = require('mysql2');
 const express = require('express');
-const https = require('https');
-const fs = require('fs');
 const { createHash } = require('crypto');
 require('dotenv').config();
 const bodyParser = require('body-parser');
 const cors = require('cors');
-
-var key = fs.readFileSync('selfsigned.key');
-var cert = fs.readFileSync('selfsigned.crt');
-var options = {
-    key: key,
-    cert: cert
-};
 
 const app = express();
 app.use(cors());
@@ -155,8 +146,6 @@ app.post('/getb', async (req, res) => {
     });
 });
 
-var server = https.createServer(options, app);
-
-server.listen(port, () => {
+app.listen(port, () => {
     console.log(`App listening at http://localhost:${port}`);
 });
