@@ -1,6 +1,7 @@
 const mysql = require('mysql2');
 const express = require('express');
 const { createHash } = require('crypto');
+require('dotenv').config();
 const bodyParser = require('body-parser');
 const cors = require('cors');
 const app = express();
@@ -9,10 +10,10 @@ app.use(bodyParser.json());
 const port = 3001;
 
 const connection = mysql.createPool({
-    host: 'database.cyyljzvta8gd.ap-south-1.rds.amazonaws.com',
-    user: 'admin',
-    password: 'somepassword',
-    database: 'flexmoney',
+    host: process.env.DB_HOST,
+    user: process.env.DB_USER,
+    password: process.env.DB_PASSWORD,
+    database: process.env.DB_DB,
     multipleStatements: true
 }).promise();
 
@@ -129,18 +130,18 @@ app.post('/forgot', async (req, res) => {
 
 app.post('/getb', async (req, res) => {
     var query = "SELECT next_batch FROM user WHERE enrollmentID = '" + req.body.enrollmentID + "';";
-
+    
     await connection.query(query)
-        .then((data) => {
-            res.send({
-                "batch": data[0][0].next_batch
-            });
-        })
-        .catch((err) => {
-            res.send({
-                "error": err
-            });
+    .then((data) => {
+        res.send({
+            "batch": data[0][0].next_batch
         });
+    })
+    .catch((err) => {
+        res.send({
+            "error": err
+        });
+    });
 });
 
 app.listen(port, () => {
