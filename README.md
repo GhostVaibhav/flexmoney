@@ -34,7 +34,7 @@ This project consists of three main parts -
 
 ### Frontend
 
-- For frontend, I used the React framework in addition to Tailwind CSS. The separate repo containing the frontend is linked [here]().
+- For frontend, I used the React framework in addition to Tailwind CSS. The separate repo containing the frontend is linked [here](https://github.com/GhostVaibhav/flexmoney-frontend/tree/429484c2a1649a82f946fb59ea384d24504da659).
 - The server address (**API endpoint**) is provided in the form of a `.env` file which is **recreated through GitHub environment secrets**.
 - The whole website is **built through GitHub Actions** and **deployed to a custom subdomain** of my own domain - https://flex.ghostvaibhav.codes
 - The deployment is done through **GitHub pages**.
@@ -54,7 +54,7 @@ This project consists of three main parts -
 ### Backend
 
 - For backend, I have used `Express` with **CORS**.
-- The whole backend is present in the `flexmoney-backend` folder linked [here]().
+- The whole backend is present in the `flexmoney-backend` folder linked [here](https://github.com/GhostVaibhav/flexmoney/tree/master/flexmoney-backend).
 - The backend server is hosted on an **EC2 instance** for improved reliability.
 - In the server, I have installed `Nginx` as well as `PM2` for different purposes discussed below.
 - `PM2` is installed for running the `Express` server in the **background at all times**, even when we have SSH out of the instance.
