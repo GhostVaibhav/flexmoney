@@ -34,7 +34,7 @@ This project consists of three main parts -
 
 ### Frontend
 
-- For frontend, I used the React framework in addition to Tailwind CSS. The separate repo containing the frontend is linked [here](https://github.com/GhostVaibhav/flexmoney-frontend/tree/429484c2a1649a82f946fb59ea384d24504da659).
+- For frontend, I used the React framework in addition to Tailwind CSS. The separate repo containing the frontend is linked [here](https://github.com/GhostVaibhav/flexmoney-frontend/tree/5e4ca374cc8d0f191f84623f71cca7924528ce7d).
 - The server address (**API endpoint**) is provided in the form of a `.env` file which is **recreated through GitHub environment secrets**.
 - The whole website is **built through GitHub Actions** and **deployed to a custom subdomain** of my own domain - https://flex.ghostvaibhav.codes
 - The deployment is done through **GitHub pages**.
